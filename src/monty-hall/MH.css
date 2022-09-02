@@ -1,0 +1,97 @@
+.MHcontainer{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.MHApp {
+  text-align: center;
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 800px;
+}
+
+.MHdoor-row {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.MHdoor {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MHdoorWidth{
+  width: 90%;
+}
+
+.MHresults {
+  padding: 1rem;
+  margin: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.MHresults-table{
+  font-family: 'Permanent Marker', cursive;
+  margin: .5rem;
+}
+
+th, td {
+  padding: .25rem;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.MHbox {
+  border: 3px solid black;
+  border-radius: 1rem;
+  margin: .5rem;
+  padding: .5rem;
+}
+
+.MHtitle{
+  font-size: 2rem;
+}
+
+.MHtitle, h3{
+  color: indigo;
+  font-family: 'Permanent Marker', cursive;
+}
+
+.MHbuttons {
+  padding: .5rem;
+  margin: 1rem;
+  color: indigo;
+  font-weight: bold;
+}
+
+@media (max-width: 800px){
+  .MHApp{
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .MHresults{
+    flex-direction: row;
+  }
+
+  .MHText{
+    order: 0;
+  }
+
+}
+
+@media (max-width: 450px){
+  .MHresults{
+    flex-direction: column-reverse;
+  }
+
+}
