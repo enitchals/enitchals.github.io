@@ -8,7 +8,12 @@ const siteContent = {
     ]
   },
   art: {
-    header: "Art"
+    header: "Art",
+    subMenus: [
+      {gallery: 'paper-media', header: 'Paper Media'},
+      {gallery: 'paintings', header: 'Paintings'},
+      {gallery: 'ai-art', header: 'AI Art'},
+    ]
   },
   cats: {
     header: "Cats"
