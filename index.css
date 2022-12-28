@@ -1,3 +1,5 @@
+/* TODO: MEDIA QUERIES FOR A MOBILE BREAKPOINT */
+
 body {
   background-color: aliceblue;
 }
@@ -68,17 +70,14 @@ p {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.gallery::after {
-  content: "";
-  flex: auto;
+  justify-content: center;
 }
 
 .galleryImage {
   max-height: 250px;
   margin: 5px;
+  border-radius: 5px;
+  border: 2px solid teal;
 }
 
 .expandedImageContainer {
@@ -87,10 +86,12 @@ p {
   min-height: 100vh;
   top: 0;
   left: 0;
-  background-color: rgba(200,200,200,.8);
+  background-color: rgba(200,200,200,.9);
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-weight: bold;
 }
 .expandedImage {
   max-height: 80vh;

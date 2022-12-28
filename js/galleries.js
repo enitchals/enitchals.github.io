@@ -1,54 +1,63 @@
+// TODO: ADD ABILITY TO FILTER ON TAGS
+// TODO: ADD AN 'X' TO CLOSE EXPANDED IMAGE
+// TODO: ADD < AND > BUTTONS TO NAGIVATE BETWEEN EXPANDED IMAGES
+
 const removeExpandedPhoto = () => {
   const expandedPhoto = document.querySelector(".expandedImageContainer");
   expandedPhoto.parentNode.removeChild(expandedPhoto);
 }
 
-const expand = (url) => {
+const expand = (image) => {
   const content = document.querySelector("#content");
   const expandedPhoto = document.createElement('section');
   expandedPhoto.className = 'expandedImageContainer';
   const img = document.createElement('img');
   img.className = 'expandedImage'
-  img.src = url;
+  img.src = `./galleries/${image.filename}`;
   expandedPhoto.append(img);
+  const text = document.createElement('p');
+  text.textContent = image.text;
+  expandedPhoto.append(text)
   expandedPhoto.addEventListener('click', removeExpandedPhoto)
   content.append(expandedPhoto);
 }
 
-// const subMenu = (type) => {
-//   const menu = document.createElement('nav');
-//   siteContent[type].subMenus?.forEach(submenu => {
-//     const button = document.createElement('button');
-//     button.onClick = `${submenu.gallery}()`;
-//     button.textContent = submenu.header;
-//     menu.append(button);
-//   });
-//   return menu
-// }
-
-const gallery = (type, number) => {
-  reset();
-  const content = document.querySelector("#content");
+const gallery = (images, headerContent) => {
   const header = document.createElement('h2');
-  header.append(siteContent[type].header);
+  header.append(headerContent);
   content.append(header);
-  // const subMenuContent = subMenu(type);
-  // console.log(subMenuContent);
-  // content.append(subMenuContent);
   const gallery = document.createElement('section');
   gallery.className = 'gallery';
-  for (let i=0; i<number; i++){
+  for (const image of images){
     const img = document.createElement('img');
-    img.src = `../galleries/${type}/${i+1}.png`
+    img.src = `./galleries/${image.filename}`;
     img.className = 'galleryImage'
-    img.addEventListener('click', () => expand(`../${type}/${i+1}.png`))
+    img.addEventListener('click', () => expand(image))
     gallery.append(img);
   }
-  content.append(gallery);
+  return gallery;
 }
 
-const cats = () => gallery('cats', 5);
-const art = () => gallery('art', 6);
-// const paperMedia = () => gallery('paper-media', 6);
-// const paintings = () => gallery('paintings', )
-// const aiArt = () => gallery('ai-art', )
+
+const filteredGallery = (type, tagForFilter) => {
+  reset();
+  const content = document.querySelector("#content");
+  const images = tagForFilter ? siteContent[type].body.filter(image => image.tags.includes(tagForFilter)) : siteContent[type].body
+  const galleryToDisplay = gallery(images, siteContent[type].header);
+  const tags = siteContent[type].body.reduce((acc, curr) =>  acc.concat(curr.tags).filter((tag, index, array) => index === array.lastIndexOf(tag)), [])
+  const tagButtons = document.createElement('nav');
+  tags.forEach(tag => {
+    const button = document.createElement('button');
+    button.textContent = tag;
+    button.addEventListener('click', () => filteredGallery(type, tag));
+    tagButtons.append(button);
+  })
+  content.append(tagButtons);
+  content.append(galleryToDisplay);
+
+}
+
+
+const art = () => filteredGallery('art')
+
+const cats = () => filteredGallery('cats')
