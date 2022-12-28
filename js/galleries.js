@@ -1,4 +1,4 @@
-// TODO: ADD ABILITY TO FILTER ON TAGS
+// TODO: SORT TAGS BY FREQUENCY WHEN DISPLAYING THE LINKS
 // TODO: ADD AN 'X' TO CLOSE EXPANDED IMAGE
 // TODO: ADD < AND > BUTTONS TO NAGIVATE BETWEEN EXPANDED IMAGES
 
@@ -44,7 +44,8 @@ const filteredGallery = (type, tagForFilter) => {
   const content = document.querySelector("#content");
   const images = tagForFilter ? siteContent[type].body.filter(image => image.tags.includes(tagForFilter)) : siteContent[type].body
   const galleryToDisplay = gallery(images, siteContent[type].header);
-  const tags = siteContent[type].body.reduce((acc, curr) =>  acc.concat(curr.tags).filter((tag, index, array) => index === array.lastIndexOf(tag)), [])
+  const tags = siteContent[type].body.reduce((acc, curr) =>  acc.concat(curr.tags)
+    .filter((tag, index, array) => index === array.lastIndexOf(tag)), [])
   const tagButtons = document.createElement('nav');
   tags.forEach(tag => {
     const button = document.createElement('button');
