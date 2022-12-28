@@ -4,7 +4,7 @@ const siteContent = {
     body: [
       "I'm a web development instructor with a diverse range of skills and interests. I live in Portland, Oregon and like to spend time with my partner and our three cats.",
       "My professional background includes, among other things: software engineering, technical support, technical writing, and job search consulting. I got a BA in Philosophy from Willamette University in Salem, Oregon, and some years later I went to a web dev bootcamp to reorient my career.",
-      "In my free time, I like to make art, listen to music, and watch TV.",
+      "In my free time, I like to make art, listen to music, and watch TV. I am frequently trying out new hobbies, though I don't always stick with them.",
       "I identify as queer, nonbinary, and neurodivergent. I'm fascinated by how humans use concepts and data to map the world around them."
     ]
   },

@@ -1,30 +1,36 @@
 /* TODO: MEDIA QUERIES FOR A MOBILE BREAKPOINT */
 
 body {
-  background-color: aliceblue;
+  background-color: lightseagreen;
 }
 
 h1 {
   font-size: 42px;
   font-family: Arial, Helvetica, sans-serif;
   color: teal;
+  text-shadow: 0px 0px 10px lightseagreen;
   margin: 0px;
   padding: 0px;
 }
 
 h2 {
   color: teal;
+  text-shadow: 0px 0px 5px lightseagreen;
   font-size: 28px;
   margin: 5px;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.mainNav > button {
+  text-shadow: 0px 0px 3px lightseagreen;
+  font-size: 22px;
+}
+
 button {
   color: teal;
-  text-decoration: underline;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 22px;
+  font-size: 18px;
   border: none;
   margin: 5px;
   padding: 0px;
@@ -44,6 +50,7 @@ p {
   border: 5px solid teal;
   border-radius: 5px;
   margin: 20px;
+  background-color: aliceblue;
 }
 
 .headerContent {
@@ -55,8 +62,9 @@ p {
 
 .profilePic {
   height: 200px;
+  border: 5px solid lightseagreen;
   border-radius: 200px;
-  padding: 30px;
+  margin: 30px;
 }
 
 #content {
@@ -64,6 +72,8 @@ p {
   border-radius: 5px;
   padding: 20px;
   margin: 20px;
+  background-color: aliceblue;
+
 }
 
 .gallery {
